@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up Page</title>
+    <!--Linking style.css file to this html page-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-action">
+            <header>Sign up <br> <small>Sign up to continue </small></header>
+            <form action="">
+
+                <!--input tag for Full name-->
+                <div class="form-input">
+                    <label for="name">Full Name</label> <br>
+                    <input type="text" id="name" placeholder="Full name" pattern="^[A-Za-z]+(\s[A-Za-z]+)+$" required> <br>
+                </div>
+
+                <!--input tag for email-->
+                <div class="form-input">
+                    <label for="email">Email</label> <br>
+                    <input type="email" id="email" placeholder="Email" required> <br>
+                </div>
+
+                <!--input tag for phone number-->
+                <div class="form-input">
+                    <label for="phnumber">Phone number</label> <br>
+                    <input type="tel" id="phnumber" placeholder="Phone number" pattern="^[6-9]\d{9}$" required> <br>
+                </div>
+
+                <!--input tag for password-->
+                <div class="form-input">
+                    <label for="password">Password</label> <br>
+                    <input type="password" id="password" name="password" placeholder="Password"   pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$" title="Minimum 8 characters, with at least one uppercase letter, one lowercase letter, one number, and one special character." required> <br>
+                </div>
+
+                <!--input tag for Confirm password-->
+                <div class="form-input">
+                    <label for="conpassword">Confirm password</label> <br>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required> <br>
+                </div>
+            
+                <!--Submit button-->
+                <div class="form-input">
+                <button class="submit-button" type="Submit" value="Submit"><b>Sign up</b></button>
+                </div>
+                <p>or</p>
+            </form>
+            <button class="google-button"> <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" class="google-icon"><span>Sign up with Google</span></button>
+        </div>
+        <p>Already have an account ?  <a href="#">Sign in</a></p>
+    </div>
+    <script>
+document.getElementById('confirmPassword').addEventListener('input', function () {
+  const pass = document.getElementById('password').value;
+  const confirm = this.value;
+
+  if (confirm !== pass) {
+    this.setCustomValidity("Passwords do not match");
+  } else {
+    this.setCustomValidity("");
+  }
+});
+</script>
+</body>
+</html>
