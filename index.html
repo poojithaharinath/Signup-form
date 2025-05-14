@@ -37,10 +37,16 @@
                     <input type="password" id="password" name="password" placeholder="Password"   pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$" title="Minimum 8 characters, with at least one uppercase letter, one lowercase letter, one number, and one special character." required> <br>
                 </div>
 
+
                 <!--input tag for Confirm password-->
                 <div class="form-input">
                     <label for="conpassword">Confirm password</label> <br>
                     <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required> <br>
+                </div>
+
+                <!--checkbox to show password password-->
+                <div>
+                    <input type="checkbox" id="showPassword"> Show Password
                 </div>
             
                 <!--Submit button-->
@@ -54,6 +60,7 @@
         <p>Already have an account ?  <a href="#">Sign in</a></p>
     </div>
     <script>
+        
 document.getElementById('confirmPassword').addEventListener('input', function () {
   const pass = document.getElementById('password').value;
   const confirm = this.value;
@@ -63,6 +70,14 @@ document.getElementById('confirmPassword').addEventListener('input', function ()
   } else {
     this.setCustomValidity("");
   }
+  document.getElementById('showPassword').addEventListener('change', function () {
+  const password = document.getElementById('password');
+  const confirmPassword = document.getElementById('confirmPassword');
+
+  const type = this.checked ? 'text' : 'password';
+  password.type = type;
+  confirmPassword.type = type;
+});
 });
 </script>
 </body>
